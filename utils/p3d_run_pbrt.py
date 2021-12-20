@@ -38,21 +38,20 @@ def main():
     if not os.path.exists(output):
         os.makedirs(output)
 
-    for scene in scenes:
 
-        _, scene_folder = os.path.split(scene)
+    for est in estimators:
 
-        output_scene = os.path.join(output, scene_folder)
-        if not os.path.exists(output_scene):
-            os.makedirs(output_scene)
+        output_est = os.path.join(output, est)
+        if not os.path.exists(output_est):
+            os.makedirs(output_est)
 
-        for est in estimators:
+        for scene in scenes:
 
-            pbrt_cmd = f'{pbrt} {"--gpu " if gpu else ""} --folder {output} --spp {SPP}' \
+            pbrt_cmd = f'{pbrt} {"--gpu " if gpu else ""} --folder {output_est} --spp {SPP}' \
                     f' --nimages {NIMAGES} --independent {INDEPENDENT} --estimator {est}' \
                     f' {options} {scene}'
-
-            print(pbrt_cmd)
+            # print(pbrt_cmd)
+            os.system(pbrt_cmd)
 
 
 

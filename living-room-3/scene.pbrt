@@ -8,8 +8,8 @@ PixelFilter "triangle"
     "float yradius" [ 1 ]
 Film "rgb"
     "string filename" [ "living-room-3.png" ]
-    "integer yresolution" [ 720 ]
-    "integer xresolution" [ 1280 ]
+    "integer yresolution" [ 1080 ]
+    "integer xresolution" [ 1920 ]
 Camera "perspective"
     "float fov" [ 29.394957 ]
 
