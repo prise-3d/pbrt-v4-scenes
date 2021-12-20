@@ -8,7 +8,7 @@ Sampler "independent"
 Integrator "path" "integer maxdepth" [ 65 ]
 
 Film "rgb"
-    "string filename" [ "p3d_landscape-view-1.rawls" ]
+    "string filename" [ "p3d_landscape-view-1.exr" ]
     "integer yresolution" [ 1080 ]
     "integer xresolution" [ 1920 ]
 

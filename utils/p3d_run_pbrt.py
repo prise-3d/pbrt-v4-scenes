@@ -1,5 +1,6 @@
 import os
 import argparse
+import time
 
 # some parameters
 SPP = 20
@@ -47,11 +48,16 @@ def main():
 
         for scene in scenes:
 
+            print(f'Rendering of scene {scene} with {est}')
+
             pbrt_cmd = f'{pbrt} {"--gpu " if gpu else ""} --folder {output_est} --spp {SPP}' \
                     f' --nimages {NIMAGES} --independent {INDEPENDENT} --estimator {est}' \
                     f' {options} {scene}'
+                    
             # print(pbrt_cmd)
             os.system(pbrt_cmd)
+            time.sleep(10)
+        
 
 
 
