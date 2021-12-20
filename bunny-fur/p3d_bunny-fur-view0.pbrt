@@ -10,7 +10,7 @@ LookAt 0 2 5
     0 1 0
 
 Camera "perspective"
-    "float fov" [ 18 ]
+    "float fov" [ 21 ]
 
 Sampler "independent" "integer pixelsamples" 64
 Integrator "volpath" "integer maxdepth" 20
