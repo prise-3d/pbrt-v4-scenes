@@ -22,7 +22,7 @@ def main():
         os.makedirs(output)
 
 
-    exr_files = glob.glob(os.path.join(folder, '**', '*.exr'))
+    exr_files = glob.glob(os.path.join(folder, '**', '*.exr'), recursive=True)
     
     for exr in exr_files:
         output_exr = exr.replace(folder, output).replace('.exr', '.png')
@@ -31,7 +31,7 @@ def main():
         if not os.path.exists(head):
             os.makedirs(head)
 
-        # print(output_exr)
+        print(f'convert {output_exr} in {output_exr}')
         os.system(f'convert {exr} -gravity center -crop 800x800+0+0 {output_exr}')
 
  
