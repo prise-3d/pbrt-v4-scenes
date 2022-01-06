@@ -7,7 +7,6 @@ import glob
 
 def main():
 
-
     parser = argparse.ArgumentParser(description="Convert EXR image to PNG using imagemagick")
 
     parser.add_argument('--folder', type=str, help="exr folder", required=True)
@@ -31,14 +30,8 @@ def main():
         if not os.path.exists(head):
             os.makedirs(head)
 
-        print(f'convert {output_exr} in {output_exr}')
-        os.system(f'convert {exr} -gravity center -crop 800x800+0+0 {output_exr}')
-
- 
-        
-
-
-
+        print(f'convert {exr} in {output_exr}')
+        os.system(f'convert {exr} -colorspace RGB -gravity center -crop 800x800+0+0 {output_exr}')
 
 
 if __name__ == '__main__':
