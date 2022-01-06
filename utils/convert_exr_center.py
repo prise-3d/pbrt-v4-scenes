@@ -23,7 +23,7 @@ def main():
 
     exr_files = glob.glob(os.path.join(folder, '**', '*.exr'), recursive=True)
     
-    for exr in exr_files:
+    for exr in sorted(exr_files):
         output_exr = exr.replace(folder, output).replace('.exr', '.png')
         head, _ = os.path.split(output_exr)
 
