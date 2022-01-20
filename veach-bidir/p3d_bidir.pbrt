@@ -4,14 +4,14 @@ Integrator "path"
 PixelFilter "box"
 Film "rgb"
     "string filename" [ "p3d_bidir.exr" ]
-    "integer yresolution" [ 1080 ]
-    "integer xresolution" [ 1920 ]
+    "integer yresolution" [ 800 ]
+    "integer xresolution" [ 800 ]
 Scale -1 1 1
 LookAt -0.223944 -6.64245 0.366128
     -0.261616 -5.64477 0.309317
     0 0 1
 Camera "perspective"
-    "float fov" [ 27.3 ]
+    "float fov" [ 34.156546598304615 ]
 
 
 WorldBegin
