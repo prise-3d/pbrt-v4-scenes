@@ -7,7 +7,6 @@ SPP = 20
 INDEPENDENT = 0
 NIMAGES = 500
 
-
 def main():
 
 
@@ -50,17 +49,16 @@ def main():
 
             print(f'Rendering of scene {scene} with {est}')
 
+            scene_folder, pbrt_filename = os.path.split(scene)
+
             pbrt_cmd = f'{pbrt} {"--gpu " if gpu else ""} --folder {output_est} --spp {SPP}' \
                     f' --nimages {NIMAGES} --independent {INDEPENDENT} --estimator {est}' \
-                    f' {options} {scene}'
+                    f' {options} {pbrt_filename}'
                     
-            # print(pbrt_cmd)
-            os.system(pbrt_cmd)
+            # go into folder
+            os.system(f'cd {scene_folder} && {pbrt_cmd} && cd ..')
             time.sleep(10)
         
-
-
-
 
 
 if __name__ == '__main__':
