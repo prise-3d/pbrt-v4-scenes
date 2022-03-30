@@ -1,8 +1,8 @@
 Film "rgb"
     "float iso" [ 100 ]
     "string filename" [ "p3d_bmw-m6.exr" ]
-    "integer yresolution" [ 1800 ]
-    "integer xresolution" [ 1800 ]
+    "integer yresolution" [ 1080 ]
+    "integer xresolution" [ 1920 ]
 LookAt -11 0.8 5
     -2 -0.5 0
     0 1 0

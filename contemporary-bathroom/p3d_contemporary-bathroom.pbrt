@@ -4,8 +4,8 @@ Film "rgb"
     "float maxcomponentvalue" [ 50 ]
     "float iso" [ 600 ]
     "string filename" [ "p3d_contemporary-bathroom.exr" ]
-    "integer yresolution" [ 1800 ]
-    "integer xresolution" [ 1800 ]
+    "integer yresolution" [ 1080 ]
+    "integer xresolution" [ 1920 ]
 Scale -1 1 1
 LookAt 0 1.25 -0.5
     -10 0 -9

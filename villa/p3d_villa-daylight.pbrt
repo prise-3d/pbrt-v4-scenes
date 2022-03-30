@@ -11,7 +11,6 @@ Film "rgb" "integer xresolution" [ 1920 ]
     "string filename" "p3d_villa-daylight.exr"
 
 Integrator "volpath" "integer maxdepth" 64
-
 Sampler "independent" "integer pixelsamples" [ 4096 ] 
 
 WorldBegin
