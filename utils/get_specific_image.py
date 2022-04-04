@@ -24,17 +24,14 @@ def main():
     output = args.output
     base = args.base
 
-    # create empty directory if not exists
-    if not os.path.exists(output):
-        os.makedirs(output)
-
     # list every images
     scene_images = sorted(os.listdir(folder))
 
+    # get the binary reprentation of the current required spp value
     binary_str = "{0:b}".format(spp)[::-1]
-    
-    image_index = 1
 
+    # init by default to 1 spp
+    image_index = 1
     previous_exr = None
 
     # for each binary value, do the fusion
@@ -47,15 +44,22 @@ def main():
             
             current_exr = EXR.fromfile(img_path)
 
+            # fusion in necessary the current image with the previous one
             if previous_exr is not None:
                 current_exr = EXR.fusion([current_exr, previous_exr])
 
             previous_exr = current_exr
 
+        # update the base index value
         image_index = base * image_index
 
 
-    print("Obtained image contains:", previous_exr.spp)
+    # save the computed image
+    # check if output folder exists
+    if output.endswith('.exr'):
+        previous_exr.save(output)
+    else:
+        print("Can't save the current image, unexpected output file extension")
 
 
 
