@@ -45,3 +45,4 @@ zero-day/frame52.exr
 zero-day/frame85.exr
 .python-version
 utils/*.txt
+__pycache__
