@@ -61,7 +61,5 @@ def main():
     else:
         print("Can't save the current image, unexpected output file extension")
 
-
-
 if __name__ == '__main__':
     main()
