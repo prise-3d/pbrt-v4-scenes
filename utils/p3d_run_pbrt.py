@@ -94,7 +94,7 @@ def main():
             scene_folder, pbrt_filename = os.path.split(scene)
 
             pbrt_cmd = f'{pbrt} {"--gpu " if gpu else ""} --folder {output_est} --spp {SPP}' \
-                    f' --nimages {NIMAGES} --startindex {start_index} --independent {INDEPENDENT} --estimator {est}' \
+                    f' --nimages {NIMAGES} --startindex {start_index - 1} --independent {INDEPENDENT} --estimator {est}' \
                     f' {options} {pbrt_filename}'
                     
             # go into folder
