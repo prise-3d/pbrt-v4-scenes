@@ -1,3 +1,4 @@
+from math import exp
 import os
 import argparse
 import time
@@ -7,9 +8,31 @@ SPP = 1
 INDEPENDENT = 0
 NIMAGES = 30
 
+
+def extract_output_folder_scene(scene_file):
+    with open(scene_file, 'r') as f:
+
+        expected_line = None
+        found_film = False
+        for l in f.readlines():
+
+            if 'Film "rgb"' in l:
+                found_film = True
+
+            if found_film and '"string filename"' in l:
+                expected_line = l
+                break
+        
+        # extract folder name...
+        return expected_line.replace('"string filename"', '') \
+                .replace('"', '') \
+                .replace('[', '') \
+                .replace(']', '').strip() \
+                .split('.')[0]
+                
+
 def get_nspp_image(filename):
-    print(filename.split('.')[0])
-    print(filename.split('.')[0].split('-'))
+
     return int(filename.split('.')[0].split('-')[-2].replace('S', ''))
 
 def main():
@@ -50,11 +73,10 @@ def main():
 
         for scene in scenes:
 
+            output_scene_folder = extract_output_folder_scene(scene)
+            output_scene_path = os.path.join(output_est, output_scene_folder)
+            
             # check if already images with same number of SPP are already generated
-            # ToDo: improve scene folder access...
-            _, scene_file = os.path.split(scene)
-            output_scene_path = os.path.join(output_est, scene_file.replace('.pbrt', ''))
-            print(output_scene_path)
             computed_images = os.listdir(output_scene_path)
             expected_images = [ e for e in computed_images if get_nspp_image(e) == SPP ]
 
