@@ -75,6 +75,9 @@ def main():
 
             output_scene_folder = extract_output_folder_scene(scene)
             output_scene_path = os.path.join(output_est, output_scene_folder)
+
+            if not os.path.exists(output_scene_path):
+                os.makedirs(output_scene_path)
             
             # check if already images with same number of SPP are already generated
             computed_images = os.listdir(output_scene_path)
