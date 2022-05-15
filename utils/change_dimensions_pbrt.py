@@ -37,6 +37,9 @@ def main():
         # Update yresolution into file
         if line.find(yresolution_line) != -1:
             output_line = "\t" + yresolution_line + " " + str(p_yresolution) + '\n'
+        
+        if 'Film "rgb"' in line:
+            output_line = 'Film "rgb"' + output_line
 
         output_content = output_content + output_line
 
