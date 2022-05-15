@@ -28,7 +28,7 @@ do
     filename_fixed=${filename//\/\//\/}
 
     # check if filename contains 
-    if [[ "$file" == ${prefix}* ]]; then
+    if [[ "$file" == ${prefix}*.pbrt ]]; then
         echo "Update image extension (xresolution to ${xresolution} and yresolution to ${yresolution}) into ${filename_fixed}"
         python utils/change_dimensions_pbrt.py --xresolution ${xresolution} --yresolution ${yresolution} --pbrt ${filename_fixed}
     fi 
